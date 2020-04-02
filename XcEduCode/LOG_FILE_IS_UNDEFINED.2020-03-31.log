@@ -1,0 +1,217 @@
+16:40:20.477 INFO  c.x.f.MangeCmsSpringApplication [50] - Starting MangeCmsSpringApplication on DESKTOP-V5795O3 with PID 15680 (E:\project_xuecheng\XcEduCode\xc-service-mange-cms\target\classes started by wyj in E:\project_xuecheng\XcEduCode)
+16:40:20.495 INFO  c.x.f.MangeCmsSpringApplication [659] - No active profile set, falling back to default profiles: default
+16:40:20.559 INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [590] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c41ed1d: startup date [Tue Mar 31 16:40:20 CST 2020]; root of context hierarchy
+16:40:21.659 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [328] - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$40001d25] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:40:22.156 INFO  o.s.b.w.e.tomcat.TomcatWebServer [91] - Tomcat initialized with port(s): 31001 (http)
+16:40:22.172 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Initializing ProtocolHandler ["http-nio-31001"]
+16:40:22.183 INFO  o.a.catalina.core.StandardService [180] - Starting service [Tomcat]
+16:40:22.183 INFO  o.a.catalina.core.StandardEngine [180] - Starting Servlet Engine: Apache Tomcat/8.5.28
+16:40:22.188 INFO  o.a.c.core.AprLifecycleListener [180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;"C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Java\jdk1.8.0_171\jre\bin";D:\platform-tools;C:\Users\wyj\AppData\Local\Android\Sdk\build-tools\28.0.1;D:\gradle-4.10\bin;D:\apache-maven-3.6.0\bin;D:\Git\bin;D:\Git\libexec\git-core;D:\nodejs\;C:\Users\wyj\AppData\Local\Microsoft\WindowsApps;D:\gradle-4.10\bin;;D:\JetBrains\IntelliJ IDEA 2018.3.5\bin;;D:\WebStorm 2019.1\bin;;D:\JetBrains\PhpStorm 2018.3.6\bin;;C:\Users\wyj\AppData\Roaming\npm;.]
+16:40:22.350 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [180] - Initializing Spring embedded WebApplicationContext
+16:40:22.350 INFO  o.s.web.context.ContextLoader [285] - Root WebApplicationContext: initialization completed in 1791 ms
+16:40:22.508 INFO  o.s.b.w.s.ServletRegistrationBean [185] - Servlet dispatcherServlet mapped to [/]
+16:40:22.517 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'characterEncodingFilter' to: [/*]
+16:40:22.517 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+16:40:22.517 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+16:40:22.517 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'requestContextFilter' to: [/*]
+16:40:22.769 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:40:23.005 INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter [574] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c41ed1d: startup date [Tue Mar 31 16:40:20 CST 2020]; root of context hierarchy
+16:40:23.076 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/cms/mange/list/{page}/{size}],methods=[GET]}" onto public com.xuecheng.framework.model.response.QueryResponseResult com.xuecheng.framework.mange_cms.controller.CmsPageController.findList(int,int,com.xuecheng.framework.domain.cms.request.QueryPageRequest)
+16:40:23.078 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+16:40:23.080 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+16:40:23.118 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:40:23.118 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:40:24.039 INFO  org.mongodb.driver.cluster [71] - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+16:40:24.039 INFO  org.mongodb.driver.cluster [71] - Adding discovered server localhost:27017 to client view of cluster
+16:40:24.119 INFO  org.mongodb.driver.cluster [76] - Exception in monitor thread while connecting to server localhost:27017
+com.mongodb.MongoSecurityException: Exception authenticating MongoCredential{mechanism=null, userName='root', source='xc_cms', password=<hidden>, mechanismProperties={}}
+	at com.mongodb.connection.SaslAuthenticator.wrapException(SaslAuthenticator.java:162)
+	at com.mongodb.connection.SaslAuthenticator.access$200(SaslAuthenticator.java:39)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:68)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:46)
+	at com.mongodb.connection.SaslAuthenticator.doAsSubject(SaslAuthenticator.java:168)
+	at com.mongodb.connection.SaslAuthenticator.authenticate(SaslAuthenticator.java:46)
+	at com.mongodb.connection.DefaultAuthenticator.authenticate(DefaultAuthenticator.java:32)
+	at com.mongodb.connection.InternalStreamConnectionInitializer.authenticateAll(InternalStreamConnectionInitializer.java:122)
+	at com.mongodb.connection.InternalStreamConnectionInitializer.initialize(InternalStreamConnectionInitializer.java:52)
+	at com.mongodb.connection.InternalStreamConnection.open(InternalStreamConnection.java:127)
+	at com.mongodb.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:114)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mongodb.MongoCommandException: Command failed with error 18: 'Authentication failed.' on server localhost:27017. The full response is { "ok" : 0.0, "errmsg" : "Authentication failed.", "code" : 18, "codeName" : "AuthenticationFailed" }
+	at com.mongodb.connection.ProtocolHelper.getCommandFailureException(ProtocolHelper.java:164)
+	at com.mongodb.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:295)
+	at com.mongodb.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:255)
+	at com.mongodb.connection.CommandHelper.sendAndReceive(CommandHelper.java:84)
+	at com.mongodb.connection.CommandHelper.executeCommand(CommandHelper.java:34)
+	at com.mongodb.connection.SaslAuthenticator.sendSaslStart(SaslAuthenticator.java:119)
+	at com.mongodb.connection.SaslAuthenticator.access$000(SaslAuthenticator.java:39)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:52)
+	... 9 common frames omitted
+16:40:24.314 INFO  o.s.u.f.SpringTemplateLoader [62] - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c41ed1d: startup date [Tue Mar 31 16:40:20 CST 2020]; root of context hierarchy] and template loader path [classpath:/templates/]
+16:40:24.318 INFO  o.s.w.s.v.f.FreeMarkerConfigurer [131] - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+16:40:24.365 WARN  o.s.b.a.f.FreeMarkerAutoConfiguration [79] - Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+16:40:24.483 INFO  o.s.j.e.a.AnnotationMBeanExporter [433] - Registering beans for JMX exposure on startup
+16:40:24.491 INFO  o.s.j.e.a.AnnotationMBeanExporter [895] - Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+16:40:24.493 INFO  o.s.j.e.a.AnnotationMBeanExporter [675] - Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+16:40:24.518 INFO  o.s.c.s.DefaultLifecycleProcessor [351] - Starting beans in phase 2147483647
+16:40:24.526 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Starting ProtocolHandler ["http-nio-31001"]
+16:40:24.537 INFO  o.a.tomcat.util.net.NioSelectorPool [180] - Using a shared selector for servlet write/read
+16:40:24.559 INFO  o.s.b.w.e.tomcat.TomcatWebServer [206] - Tomcat started on port(s): 31001 (http) with context path ''
+16:40:24.561 INFO  c.x.f.MangeCmsSpringApplication [59] - Started MangeCmsSpringApplication in 4.913 seconds (JVM running for 6.229)
+16:42:46.170 INFO  c.x.f.MangeCmsSpringApplication [50] - Starting MangeCmsSpringApplication on DESKTOP-V5795O3 with PID 19012 (E:\project_xuecheng\XcEduCode\xc-service-manage-cms\target\classes started by wyj in E:\project_xuecheng\XcEduCode)
+16:42:46.175 INFO  c.x.f.MangeCmsSpringApplication [659] - No active profile set, falling back to default profiles: default
+16:42:46.306 INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [590] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c3d9b6b: startup date [Tue Mar 31 16:42:46 CST 2020]; root of context hierarchy
+16:42:47.527 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [328] - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$c73f42c4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:42:47.942 INFO  o.s.b.w.e.tomcat.TomcatWebServer [91] - Tomcat initialized with port(s): 31001 (http)
+16:42:47.957 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Initializing ProtocolHandler ["http-nio-31001"]
+16:42:47.973 INFO  o.a.catalina.core.StandardService [180] - Starting service [Tomcat]
+16:42:47.973 INFO  o.a.catalina.core.StandardEngine [180] - Starting Servlet Engine: Apache Tomcat/8.5.28
+16:42:47.977 INFO  o.a.c.core.AprLifecycleListener [180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;"C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Java\jdk1.8.0_171\jre\bin";D:\platform-tools;C:\Users\wyj\AppData\Local\Android\Sdk\build-tools\28.0.1;D:\gradle-4.10\bin;D:\apache-maven-3.6.0\bin;D:\Git\bin;D:\Git\libexec\git-core;D:\nodejs\;C:\Users\wyj\AppData\Local\Microsoft\WindowsApps;D:\gradle-4.10\bin;;D:\JetBrains\IntelliJ IDEA 2018.3.5\bin;;D:\WebStorm 2019.1\bin;;D:\JetBrains\PhpStorm 2018.3.6\bin;;C:\Users\wyj\AppData\Roaming\npm;.]
+16:42:48.163 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [180] - Initializing Spring embedded WebApplicationContext
+16:42:48.164 INFO  o.s.web.context.ContextLoader [285] - Root WebApplicationContext: initialization completed in 1857 ms
+16:42:48.320 INFO  o.s.b.w.s.ServletRegistrationBean [185] - Servlet dispatcherServlet mapped to [/]
+16:42:48.324 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'characterEncodingFilter' to: [/*]
+16:42:48.325 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+16:42:48.325 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+16:42:48.325 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'requestContextFilter' to: [/*]
+16:42:48.576 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:42:48.802 INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter [574] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c3d9b6b: startup date [Tue Mar 31 16:42:46 CST 2020]; root of context hierarchy
+16:42:48.865 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/cms/mange/list/{page}/{size}],methods=[GET]}" onto public com.xuecheng.framework.model.response.QueryResponseResult com.xuecheng.framework.mange_cms.controller.CmsPageController.findList(int,int,com.xuecheng.framework.domain.cms.request.QueryPageRequest)
+16:42:48.869 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+16:42:48.871 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+16:42:48.909 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:42:48.909 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:42:49.793 INFO  org.mongodb.driver.cluster [71] - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+16:42:49.793 INFO  org.mongodb.driver.cluster [71] - Adding discovered server localhost:27017 to client view of cluster
+16:42:49.864 INFO  org.mongodb.driver.cluster [76] - Exception in monitor thread while connecting to server localhost:27017
+com.mongodb.MongoSecurityException: Exception authenticating MongoCredential{mechanism=null, userName='root', source='xc_cms', password=<hidden>, mechanismProperties={}}
+	at com.mongodb.connection.SaslAuthenticator.wrapException(SaslAuthenticator.java:162)
+	at com.mongodb.connection.SaslAuthenticator.access$200(SaslAuthenticator.java:39)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:68)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:46)
+	at com.mongodb.connection.SaslAuthenticator.doAsSubject(SaslAuthenticator.java:168)
+	at com.mongodb.connection.SaslAuthenticator.authenticate(SaslAuthenticator.java:46)
+	at com.mongodb.connection.DefaultAuthenticator.authenticate(DefaultAuthenticator.java:32)
+	at com.mongodb.connection.InternalStreamConnectionInitializer.authenticateAll(InternalStreamConnectionInitializer.java:122)
+	at com.mongodb.connection.InternalStreamConnectionInitializer.initialize(InternalStreamConnectionInitializer.java:52)
+	at com.mongodb.connection.InternalStreamConnection.open(InternalStreamConnection.java:127)
+	at com.mongodb.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:114)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mongodb.MongoCommandException: Command failed with error 18: 'Authentication failed.' on server localhost:27017. The full response is { "ok" : 0.0, "errmsg" : "Authentication failed.", "code" : 18, "codeName" : "AuthenticationFailed" }
+	at com.mongodb.connection.ProtocolHelper.getCommandFailureException(ProtocolHelper.java:164)
+	at com.mongodb.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:295)
+	at com.mongodb.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:255)
+	at com.mongodb.connection.CommandHelper.sendAndReceive(CommandHelper.java:84)
+	at com.mongodb.connection.CommandHelper.executeCommand(CommandHelper.java:34)
+	at com.mongodb.connection.SaslAuthenticator.sendSaslStart(SaslAuthenticator.java:119)
+	at com.mongodb.connection.SaslAuthenticator.access$000(SaslAuthenticator.java:39)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:52)
+	... 9 common frames omitted
+16:42:50.037 INFO  o.s.u.f.SpringTemplateLoader [62] - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c3d9b6b: startup date [Tue Mar 31 16:42:46 CST 2020]; root of context hierarchy] and template loader path [classpath:/templates/]
+16:42:50.039 INFO  o.s.w.s.v.f.FreeMarkerConfigurer [131] - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+16:42:50.070 WARN  o.s.b.a.f.FreeMarkerAutoConfiguration [79] - Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+16:42:50.209 INFO  o.s.j.e.a.AnnotationMBeanExporter [433] - Registering beans for JMX exposure on startup
+16:42:50.218 INFO  o.s.j.e.a.AnnotationMBeanExporter [895] - Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+16:42:50.222 INFO  o.s.j.e.a.AnnotationMBeanExporter [675] - Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+16:42:50.243 INFO  o.s.c.s.DefaultLifecycleProcessor [351] - Starting beans in phase 2147483647
+16:42:50.253 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Starting ProtocolHandler ["http-nio-31001"]
+16:42:50.261 INFO  o.a.tomcat.util.net.NioSelectorPool [180] - Using a shared selector for servlet write/read
+16:42:50.287 INFO  o.s.b.w.e.tomcat.TomcatWebServer [206] - Tomcat started on port(s): 31001 (http) with context path ''
+16:42:50.290 INFO  c.x.f.MangeCmsSpringApplication [59] - Started MangeCmsSpringApplication in 4.721 seconds (JVM running for 5.895)
+16:48:09.009 INFO  c.x.f.MangeCmsSpringApplication [50] - Starting MangeCmsSpringApplication on DESKTOP-V5795O3 with PID 16644 (E:\project_xuecheng\XcEduCode\xc-service-manage-cms\target\classes started by wyj in E:\project_xuecheng\XcEduCode)
+16:48:09.019 INFO  c.x.f.MangeCmsSpringApplication [659] - No active profile set, falling back to default profiles: default
+16:48:09.137 INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [590] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@58a9760d: startup date [Tue Mar 31 16:48:09 CST 2020]; root of context hierarchy
+16:48:10.383 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [328] - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$944480df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:48:10.710 INFO  o.s.b.w.e.tomcat.TomcatWebServer [91] - Tomcat initialized with port(s): 31001 (http)
+16:48:10.724 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Initializing ProtocolHandler ["http-nio-31001"]
+16:48:10.735 INFO  o.a.catalina.core.StandardService [180] - Starting service [Tomcat]
+16:48:10.735 INFO  o.a.catalina.core.StandardEngine [180] - Starting Servlet Engine: Apache Tomcat/8.5.28
+16:48:10.740 INFO  o.a.c.core.AprLifecycleListener [180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;"C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Java\jdk1.8.0_171\jre\bin";D:\platform-tools;C:\Users\wyj\AppData\Local\Android\Sdk\build-tools\28.0.1;D:\gradle-4.10\bin;D:\apache-maven-3.6.0\bin;D:\Git\bin;D:\Git\libexec\git-core;D:\nodejs\;C:\Users\wyj\AppData\Local\Microsoft\WindowsApps;D:\gradle-4.10\bin;;D:\JetBrains\IntelliJ IDEA 2018.3.5\bin;;D:\WebStorm 2019.1\bin;;D:\JetBrains\PhpStorm 2018.3.6\bin;;C:\Users\wyj\AppData\Roaming\npm;.]
+16:48:10.892 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [180] - Initializing Spring embedded WebApplicationContext
+16:48:10.893 INFO  o.s.web.context.ContextLoader [285] - Root WebApplicationContext: initialization completed in 1756 ms
+16:48:11.058 INFO  o.s.b.w.s.ServletRegistrationBean [185] - Servlet dispatcherServlet mapped to [/]
+16:48:11.065 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'characterEncodingFilter' to: [/*]
+16:48:11.065 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+16:48:11.065 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+16:48:11.066 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'requestContextFilter' to: [/*]
+16:48:11.357 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:48:11.654 INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter [574] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@58a9760d: startup date [Tue Mar 31 16:48:09 CST 2020]; root of context hierarchy
+16:48:11.759 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/cms/mange/list/{page}/{size}],methods=[GET]}" onto public com.xuecheng.framework.model.response.QueryResponseResult com.xuecheng.framework.mange_cms.controller.CmsPageController.findList(int,int,com.xuecheng.framework.domain.cms.request.QueryPageRequest)
+16:48:11.763 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+16:48:11.765 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+16:48:11.826 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:48:11.827 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:48:12.772 INFO  org.mongodb.driver.cluster [71] - Cluster created with settings {hosts=[localhost:27017], mode=MULTIPLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+16:48:12.772 INFO  org.mongodb.driver.cluster [71] - Adding discovered server localhost:27017 to client view of cluster
+16:48:12.842 INFO  org.mongodb.driver.cluster [76] - Exception in monitor thread while connecting to server localhost:27017
+com.mongodb.MongoSecurityException: Exception authenticating MongoCredential{mechanism=null, userName='root', source='xc_cms', password=<hidden>, mechanismProperties={}}
+	at com.mongodb.connection.SaslAuthenticator.wrapException(SaslAuthenticator.java:162)
+	at com.mongodb.connection.SaslAuthenticator.access$200(SaslAuthenticator.java:39)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:68)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:46)
+	at com.mongodb.connection.SaslAuthenticator.doAsSubject(SaslAuthenticator.java:168)
+	at com.mongodb.connection.SaslAuthenticator.authenticate(SaslAuthenticator.java:46)
+	at com.mongodb.connection.DefaultAuthenticator.authenticate(DefaultAuthenticator.java:32)
+	at com.mongodb.connection.InternalStreamConnectionInitializer.authenticateAll(InternalStreamConnectionInitializer.java:122)
+	at com.mongodb.connection.InternalStreamConnectionInitializer.initialize(InternalStreamConnectionInitializer.java:52)
+	at com.mongodb.connection.InternalStreamConnection.open(InternalStreamConnection.java:127)
+	at com.mongodb.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:114)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mongodb.MongoCommandException: Command failed with error 18: 'Authentication failed.' on server localhost:27017. The full response is { "ok" : 0.0, "errmsg" : "Authentication failed.", "code" : 18, "codeName" : "AuthenticationFailed" }
+	at com.mongodb.connection.ProtocolHelper.getCommandFailureException(ProtocolHelper.java:164)
+	at com.mongodb.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:295)
+	at com.mongodb.connection.InternalStreamConnection.sendAndReceive(InternalStreamConnection.java:255)
+	at com.mongodb.connection.CommandHelper.sendAndReceive(CommandHelper.java:84)
+	at com.mongodb.connection.CommandHelper.executeCommand(CommandHelper.java:34)
+	at com.mongodb.connection.SaslAuthenticator.sendSaslStart(SaslAuthenticator.java:119)
+	at com.mongodb.connection.SaslAuthenticator.access$000(SaslAuthenticator.java:39)
+	at com.mongodb.connection.SaslAuthenticator$1.run(SaslAuthenticator.java:52)
+	... 9 common frames omitted
+16:48:13.058 INFO  o.s.u.f.SpringTemplateLoader [62] - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@58a9760d: startup date [Tue Mar 31 16:48:09 CST 2020]; root of context hierarchy] and template loader path [classpath:/templates/]
+16:48:13.059 INFO  o.s.w.s.v.f.FreeMarkerConfigurer [131] - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+16:48:13.092 WARN  o.s.b.a.f.FreeMarkerAutoConfiguration [79] - Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+16:48:13.216 INFO  o.s.j.e.a.AnnotationMBeanExporter [433] - Registering beans for JMX exposure on startup
+16:48:13.224 INFO  o.s.j.e.a.AnnotationMBeanExporter [895] - Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+16:48:13.226 INFO  o.s.j.e.a.AnnotationMBeanExporter [675] - Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+16:48:13.250 INFO  o.s.c.s.DefaultLifecycleProcessor [351] - Starting beans in phase 2147483647
+16:48:13.258 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Starting ProtocolHandler ["http-nio-31001"]
+16:48:13.272 INFO  o.a.tomcat.util.net.NioSelectorPool [180] - Using a shared selector for servlet write/read
+16:48:13.293 INFO  o.s.b.w.e.tomcat.TomcatWebServer [206] - Tomcat started on port(s): 31001 (http) with context path ''
+16:48:13.301 INFO  c.x.f.MangeCmsSpringApplication [59] - Started MangeCmsSpringApplication in 5.022 seconds (JVM running for 5.961)
+16:49:43.396 INFO  c.x.f.MangeCmsSpringApplication [50] - Starting MangeCmsSpringApplication on DESKTOP-V5795O3 with PID 18668 (E:\project_xuecheng\XcEduCode\xc-service-manage-cms\target\classes started by wyj in E:\project_xuecheng\XcEduCode)
+16:49:43.399 INFO  c.x.f.MangeCmsSpringApplication [659] - No active profile set, falling back to default profiles: default
+16:49:43.439 INFO  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext [590] - Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c3d9b6b: startup date [Tue Mar 31 16:49:43 CST 2020]; root of context hierarchy
+16:49:44.161 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker [328] - Bean 'org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration' of type [org.springframework.amqp.rabbit.annotation.RabbitBootstrapConfiguration$$EnhancerBySpringCGLIB$$bde1fd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+16:49:44.361 INFO  o.s.b.w.e.tomcat.TomcatWebServer [91] - Tomcat initialized with port(s): 31001 (http)
+16:49:44.370 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Initializing ProtocolHandler ["http-nio-31001"]
+16:49:44.377 INFO  o.a.catalina.core.StandardService [180] - Starting service [Tomcat]
+16:49:44.377 INFO  o.a.catalina.core.StandardEngine [180] - Starting Servlet Engine: Apache Tomcat/8.5.28
+16:49:44.381 INFO  o.a.c.core.AprLifecycleListener [180] - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;"C:\Program Files\Java\jdk1.8.0_171\bin;C:\Program Files\Java\jdk1.8.0_171\jre\bin";D:\platform-tools;C:\Users\wyj\AppData\Local\Android\Sdk\build-tools\28.0.1;D:\gradle-4.10\bin;D:\apache-maven-3.6.0\bin;D:\Git\bin;D:\Git\libexec\git-core;D:\nodejs\;C:\Users\wyj\AppData\Local\Microsoft\WindowsApps;D:\gradle-4.10\bin;;D:\JetBrains\IntelliJ IDEA 2018.3.5\bin;;D:\WebStorm 2019.1\bin;;D:\JetBrains\PhpStorm 2018.3.6\bin;;C:\Users\wyj\AppData\Roaming\npm;.]
+16:49:44.492 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] [180] - Initializing Spring embedded WebApplicationContext
+16:49:44.492 INFO  o.s.web.context.ContextLoader [285] - Root WebApplicationContext: initialization completed in 1053 ms
+16:49:44.587 INFO  o.s.b.w.s.ServletRegistrationBean [185] - Servlet dispatcherServlet mapped to [/]
+16:49:44.590 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'characterEncodingFilter' to: [/*]
+16:49:44.591 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+16:49:44.591 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+16:49:44.591 INFO  o.s.b.w.s.FilterRegistrationBean [244] - Mapping filter: 'requestContextFilter' to: [/*]
+16:49:44.756 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:49:44.914 INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter [574] - Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c3d9b6b: startup date [Tue Mar 31 16:49:43 CST 2020]; root of context hierarchy
+16:49:44.969 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/cms/mange/list/{page}/{size}],methods=[GET]}" onto public com.xuecheng.framework.model.response.QueryResponseResult com.xuecheng.framework.mange_cms.controller.CmsPageController.findList(int,int,com.xuecheng.framework.domain.cms.request.QueryPageRequest)
+16:49:44.971 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+16:49:44.972 INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping [547] - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+16:49:44.992 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:49:44.993 INFO  o.s.w.s.h.SimpleUrlHandlerMapping [373] - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+16:49:45.648 INFO  org.mongodb.driver.cluster [71] - Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms', maxWaitQueueSize=500}
+16:49:45.759 INFO  org.mongodb.driver.connection [71] - Opened connection [connectionId{localValue:1, serverValue:350}] to localhost:27017
+16:49:45.761 INFO  org.mongodb.driver.cluster [71] - Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, version=ServerVersion{versionList=[3, 4, 18]}, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=655700}
+16:49:45.818 INFO  o.s.u.f.SpringTemplateLoader [62] - SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@3c3d9b6b: startup date [Tue Mar 31 16:49:43 CST 2020]; root of context hierarchy] and template loader path [classpath:/templates/]
+16:49:45.818 INFO  o.s.w.s.v.f.FreeMarkerConfigurer [131] - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+16:49:45.836 WARN  o.s.b.a.f.FreeMarkerAutoConfiguration [79] - Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+16:49:45.927 INFO  o.s.j.e.a.AnnotationMBeanExporter [433] - Registering beans for JMX exposure on startup
+16:49:45.934 INFO  o.s.j.e.a.AnnotationMBeanExporter [895] - Bean with name 'rabbitConnectionFactory' has been autodetected for JMX exposure
+16:49:45.936 INFO  o.s.j.e.a.AnnotationMBeanExporter [675] - Located managed bean 'rabbitConnectionFactory': registering with JMX server as MBean [org.springframework.amqp.rabbit.connection:name=rabbitConnectionFactory,type=CachingConnectionFactory]
+16:49:45.951 INFO  o.s.c.s.DefaultLifecycleProcessor [351] - Starting beans in phase 2147483647
+16:49:45.956 INFO  o.a.coyote.http11.Http11NioProtocol [180] - Starting ProtocolHandler ["http-nio-31001"]
+16:49:45.963 INFO  o.a.tomcat.util.net.NioSelectorPool [180] - Using a shared selector for servlet write/read
+16:49:45.975 INFO  o.s.b.w.e.tomcat.TomcatWebServer [206] - Tomcat started on port(s): 31001 (http) with context path ''
+16:49:45.978 INFO  c.x.f.MangeCmsSpringApplication [59] - Started MangeCmsSpringApplication in 2.967 seconds (JVM running for 3.569)
