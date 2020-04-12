@@ -1,7 +1,3 @@
-.idea
-.idea/workspace.xml
-.idea/*
-*/target/
 .DS_Store
 node_modules/
 /dist/
@@ -19,4 +15,3 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
-xc-ui-pc-sysmanage/xc-ui-pc-sysmanage.zip
