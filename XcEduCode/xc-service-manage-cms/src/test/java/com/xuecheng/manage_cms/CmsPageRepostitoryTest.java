@@ -6,9 +6,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.yaml.snakeyaml.introspector.GenericProperty;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,6 +21,7 @@ import java.util.Optional;
 public class CmsPageRepostitoryTest {
     @Autowired
     public CmsPageRepository cmsPageRepository;
+
     @Test
     public void findById(){
         Optional<CmsPage> cmsPage = cmsPageRepository.findById("5a795ac7dd573c04508f3a56");
@@ -73,5 +77,18 @@ public class CmsPageRepostitoryTest {
     public  void  DeleteTestRecordById(){
 
         cmsPageRepository.deleteById("5e8411f0e69411482cfd5329");
+    }
+    @Test
+    public void  findBySiteIdAndPageAliase(){
+        CmsPage cmsPage = new CmsPage();
+        cmsPage.setSiteId("5a751fab6abb5044e0d19ea1");
+        cmsPage.setPageAliase("课程");
+        ExampleMatcher exampleMatcher = ExampleMatcher.matching()
+                .withMatcher("pageAliase", ExampleMatcher.GenericPropertyMatchers.contains());
+        Example<CmsPage> example  = Example.of(cmsPage,exampleMatcher);
+        List<CmsPage> list = cmsPageRepository.findAll(example);
+        list.forEach(cmsPageChild ->{
+            System.out.println(cmsPageChild);
+        });
     }
 }
