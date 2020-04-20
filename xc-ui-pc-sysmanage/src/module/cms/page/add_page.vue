@@ -1,8 +1,8 @@
 <template>
   <div>
-    <el-form ref="pageForm" :model="form" label-width="80px">
-      <el-form-item label="所属站点">
-        <el-select v-model="pageForm.siteId" placeholder="请选择站点">
+    <el-form ref="pageForm" :rules="pageFormRules" :model="pageForm" label-width="80px">
+      <el-form-item label="所属站点" prop="siteId">
+        <el-select v-model="pageForm.siteId" placeholder="请选择站点"  >
           <el-option
             v-for="item in siteList"
             :key="item.siteId"
@@ -11,7 +11,7 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="选择模板">
+      <el-form-item label="选择模板"  prop="template">
         <el-select v-model="pageForm.template" placeholder="请选择">
           <el-option
             v-for="item in templateList"
@@ -21,26 +21,26 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="页面名称">
+      <el-form-item label="页面名称"  prop="pageName">
         <el-input v-model="pageForm.pageName"></el-input>
       </el-form-item>
-      <el-form-item label="别名">
+      <el-form-item label="页面别名" prop="pageAliase">
         <el-input v-model="pageForm.pageAliase"></el-input>
       </el-form-item>
-      <el-form-item label="访问路径">
+      <el-form-item label="访问路径" prop="pageWebPath">
         <el-input v-model="pageForm.pageWebPath"></el-input>
       </el-form-item>
 
-      <el-form-item label="物理路径">
+      <el-form-item label="物理路径"  prop="pagePhysicalPath">
         <el-input v-model="pageForm.pagePhysicalPath"></el-input>
       </el-form-item>
-      <el-form-item label="类型">
+      <el-form-item label="页面类型" prop="pageType">
         <el-radio-group v-model="pageForm.pageType">
           <el-radio class="radio" label="0">静态</el-radio>
           <el-radio class="radio" label="1">动态</el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="创建时间">
+      <el-form-item label="创建时间" prop="pageCreateTime">
         <el-date-picker
           v-model="pageForm.pageCreateTime"
           type="datetime"
@@ -50,7 +50,7 @@
     </el-form>
 
     <div slot="footer" class="dialog-footer">
-      <el-button type="primary" @click="submit">提交</el-button>
+      <el-button type="primary" @click="submit()">提交</el-button>
 
       <el-button type="primary" @click="goBack">返回</el-button>
     </div>
@@ -67,6 +67,7 @@
         siteList: [],
         templateList: [],
         pageForm: {
+          template:'',
           siteId: '',
           pageName: '',
           pageAliase: '',
@@ -74,13 +75,75 @@
           pagePhysicalPath: '',
           pageType: '',
           pageCreateTime: new Date()
+        },
+        pageFormRules:{
+          siteId:[
+            {required:true,message :'请选择站点',trigger:'change'}
+          ],
+          template:[
+            {required:true,message :'请选择模板',trigger:'change'}
+          ],
+          pageName:[
+            {required:true,message :'请输入页面名称',trigger:'blur'}
+          ],
+          pageAliase:[
+            {required:true,message :'请输入页面别名',trigger:'blur'}
+          ],
+          pageWebPath:[
+            {required:true,message :'请输入访问路径',trigger:'blur'}
+          ],
+          pagePhysicalPath:[
+            {required:true,message :'请输入物理路径',trigger:'blur'}
+          ],
+          pageType:[
+            {required:true,message :'请选择页面类型',trigger:'change'}
+          ],
+          pageCreateTime:[
+            {required:true,message :'请选择日期',trigger:'change'}
+          ]
         }
+
       }
     },
     methods: {
-      submit() {
-        cmsApi.add_page(this.pageForm);
-      },
+          submit() {
+            this.$refs.pageForm.validate((valid) => {
+              if (valid) {
+                this.$confirm('将提交到数据库', '提示', {
+                  confirmButtonText: '确定',
+                  cancelButtonText: '取消',
+                  type: 'warning'
+                }).then(() => {
+                  cmsApi.add_page(this.pageForm).then((res) =>{
+                    if(res.success){
+                      this.$message({
+                        type: 'success',
+                        message: '提交成功!'
+
+                      });
+                      this.$refs['pageForm'].resetFields();
+                    }else {
+                      this.$message({
+                        type: 'info',
+                        message : '提交失败!'
+                      })
+                    }
+
+                  });
+
+                }).catch(() => {
+                  this.$message({
+                    type: 'info',
+                    message: '已取消提交'
+                  });
+                });
+
+              } else {
+                console.log('提交失败！');
+                return false
+              }
+            });
+  },
       goBack(){
         this.$router.push({
           path:'/cms/page/show',
@@ -116,4 +179,7 @@
 </script>
 
 <style scoped>
+  .el-message-box__message{
+    margin-left: 50px;
+  }
 </style>

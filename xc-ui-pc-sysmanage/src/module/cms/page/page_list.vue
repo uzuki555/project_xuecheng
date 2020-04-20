@@ -119,6 +119,10 @@
         });
       }
     },
+    created(){
+      this.page=this.$route.query.page || 1;
+      this.params.siteId   =  this.$route.query.siteId || "";
+    },
     mounted() {
       this.query();
       this.siteList = [{
@@ -127,7 +131,7 @@
       },
         {
           name: "测试站",
-          siteId: "002"
+          siteId: "102"
         }]
     }
   }
