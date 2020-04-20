@@ -20,7 +20,10 @@
       size="small"
       type="primary"
       @click="query">查询</el-button>
-    <router-link :to="{path:'/cms/page/add'}">
+    <router-link :to="{path:'/cms/page/add',query:{
+        page:this.page,
+        siteId:this.params.siteId
+    }}">
       <el-button
         size="small"
         type="primary"

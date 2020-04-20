@@ -48,9 +48,13 @@
         </el-date-picker>
       </el-form-item>
     </el-form>
+
     <div slot="footer" class="dialog-footer">
       <el-button type="primary" @click="submit">提交</el-button>
+
+      <el-button type="primary" @click="goBack">返回</el-button>
     </div>
+
   </div>
 </template>
 
@@ -76,6 +80,15 @@
     methods: {
       submit() {
         cmsApi.add_page(this.pageForm);
+      },
+      goBack(){
+        this.$router.push({
+          path:'/cms/page/show',
+          query:{
+            page:this.$route.query.page,
+            siteId:this.$route.query.siteId
+          }
+        })
       }
     },
     created() {
