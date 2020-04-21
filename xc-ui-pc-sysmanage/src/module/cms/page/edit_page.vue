@@ -34,19 +34,6 @@
       <el-form-item label="物理路径"  prop="pagePhysicalPath">
         <el-input v-model="pageForm.pagePhysicalPath"></el-input>
       </el-form-item>
-      <el-form-item label="页面类型" prop="pageType">
-        <el-radio-group v-model="pageForm.pageType">
-          <el-radio class="radio" label="0">静态</el-radio>
-          <el-radio class="radio" label="1">动态</el-radio>
-        </el-radio-group>
-      </el-form-item>
-      <el-form-item label="创建时间" prop="pageCreateTime">
-        <el-date-picker
-          v-model="pageForm.pageCreateTime"
-          type="datetime"
-          placeholder="选择日期时间">
-        </el-date-picker>
-      </el-form-item>
     </el-form>
 
     <div slot="footer" class="dialog-footer">
@@ -73,8 +60,7 @@
           pageAliase: '',
           pageWebPath: '',
           pagePhysicalPath: '',
-          pageType: '',
-          pageCreateTime: new Date()
+
         },
         pageFormRules:{
           siteId:[
@@ -94,14 +80,9 @@
           ],
           pagePhysicalPath:[
             {required:true,message :'请输入物理路径',trigger:'blur'}
-          ],
-          pageType:[
-            {required:true,message :'请选择页面类型',trigger:'change'}
-          ],
-          pageCreateTime:[
-            {required:true,message :'请选择日期',trigger:'change'}
           ]
-        }
+        },
+
 
       }
     },
@@ -109,16 +90,16 @@
           submit() {
             this.$refs.pageForm.validate((valid) => {
               if (valid) {
-                this.$confirm('将提交到数据库', '提示', {
+                this.$confirm('将提交修改到数据库', '提示', {
                   confirmButtonText: '确定',
                   cancelButtonText: '取消',
                   type: 'warning'
                 }).then(() => {
-                  cmsApi.add_page(this.pageForm).then((res) =>{
+                  cmsApi.edit_page(this.pageForm).then((res) =>{
                     if(res.success){
                       this.$message({
                         type: 'success',
-                        message: '提交成功!'
+                        message: '修改成功!'
 
                       });
                       this.$refs['pageForm'].resetFields();
@@ -155,6 +136,11 @@
       }
     },
     created() {
+      cmsApi.getCmspage(this.$route.query.pageId).then((res)=>{
+        this.pageForm = res;
+      }).catch(()=>{
+        alert("获取失败");
+      })
       this.siteList = [
         {
           name: "门户主站",

@@ -11,5 +11,12 @@ export  const  page_list =function (page,size,params) {
 export  const  add_page=function (pageForm) {
   return http.requestPost(xcApiUrlPre+"/cms/manage/add",pageForm);
 }
-
-
+export  const  getCmspage=function (pageId) {
+  return http.requestQuickGet(xcApiUrlPre+"/cms/manage/get/"+pageId);
+}
+export  const  edit_page=function (pageId,pageForm) {
+  return http.requestPut(xcApiUrlPre+"/cms/manage/edit"+"/"+pageId,pageForm);
+}
+export  const  delete_page=function (pageId) {
+  return http.requestQuickGet(xcApiUrlPre+"/cms/manage/delete"+"/"+pageId);
+}

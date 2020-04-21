@@ -7,7 +7,7 @@ import com.xuecheng.framework.domain.cms.response.CmsPageResult;
 import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.QueryResult;
-import com.xuecheng.framework.model.response.ResultCode;
+import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_cms.dao.CmsPageRepository;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +17,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 public class CmsPageService {
@@ -63,5 +65,43 @@ public class CmsPageService {
         cmsPage.setPageId(null);
         CmsPage savedCmsPage = cmsPageRepository.save(cmsPage);
         return   new CmsPageResult(CommonCode.SUCCESS,savedCmsPage);
+    }
+
+    public CmsPage findByPageId(String pageId) {
+        Optional<CmsPage> OptionalcmsPage = cmsPageRepository.findById(pageId);
+        if(OptionalcmsPage.isPresent()){
+            return   OptionalcmsPage.get();
+
+        }
+        return  null;
+
+    }
+    @Transactional
+    public CmsPageResult editCmsPage(String pageId, CmsPage cmsPage) {
+        CmsPage one = findByPageId(pageId);
+        if(one!=null){
+            one.setSiteId(cmsPage.getSiteId());
+            one.setTemplateId(cmsPage.getTemplateId());
+            one.setPageName(cmsPage.getPageName());
+            one.setPageAliase(cmsPage.getPageAliase());
+            one.setPageWebPath(cmsPage.getPageWebPath());
+            one.setPagePhysicalPath(cmsPage.getPagePhysicalPath());
+            CmsPage save = cmsPageRepository.save(one);
+            if(save!=null){
+                return  new CmsPageResult(CommonCode.SUCCESS,save);
+            }
+
+        }
+        return  new CmsPageResult(CommonCode.FAIL,null);
+    }
+
+    public ResponseResult deleteByPageId(String pageId) {
+        Optional<CmsPage> OptionalcmsPage = cmsPageRepository.findById(pageId);
+        if(OptionalcmsPage.isPresent()){
+            cmsPageRepository.deleteById(pageId);
+            return  new ResponseResult(CommonCode.SUCCESS);
+        }
+
+        return  new ResponseResult(CommonCode.FAIL);
     }
 }

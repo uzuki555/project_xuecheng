@@ -27,7 +27,7 @@
       <el-button
         size="small"
         type="primary"
-        @click="addPage">新增页面</el-button>
+        >新增页面</el-button>
 
 
     </router-link>
@@ -72,6 +72,21 @@
       label="网页创建时间"
       >
     </el-table-column>
+    <el-table-column
+      label="操作"
+    >
+      <template slot-scope="scope">
+
+          <el-button
+            size="small"
+            type="primary"
+            @click="edit(scope.row.pageId)">编辑页面</el-button>
+        <el-button
+          size="small"
+          type="danger"
+        @click="deleteByPageId(scope.row.pageId)">删除页面</el-button>
+      </template>
+    </el-table-column>
   </el-table>
     <el-pagination
       background
@@ -106,11 +121,50 @@
     },
 
     methods: {
+      deleteByPageId(pageId){
+        this.$confirm('将删除该记录', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          cmsApi.delete_page(pageId).then((res) =>{
+            if(res.success){
+              this.$message({
+                type: 'success',
+                message: '删除成功!'
+
+              });
+              this.query();
+            }else {
+              this.$message({
+                type: 'info',
+                message : '删除失败!'
+              })
+            }
+
+          });
+
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      edit(pageId){
+        this.$router.push({
+          path:'/cms/page/edit',query:{
+            pageId: pageId,
+            page:this.page
+          }
+        })
+      },
       handleCurrentChange(val) {
         this.page = val;
         this.query();
       },
       query() {
+
         cmsApi.page_list(this.page,this.size,this.params).then(res => {
           this.tableData = res.queryResult.list;
           this.total = res.queryResult.total;
