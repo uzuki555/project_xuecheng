@@ -47,6 +47,9 @@
           placeholder="选择日期时间">
         </el-date-picker>
       </el-form-item>
+      <el-form-item label="数据连接"  prop="dataUrl">
+        <el-input v-model="pageForm.dataUrl"></el-input>
+      </el-form-item>
     </el-form>
 
     <div slot="footer" class="dialog-footer">
@@ -74,7 +77,8 @@
           pageWebPath: '',
           pagePhysicalPath: '',
           pageType: '',
-          pageCreateTime: new Date()
+          pageCreateTime: new Date(),
+          dataUrl : ''
         },
         pageFormRules:{
           siteId:[
@@ -100,6 +104,9 @@
           ],
           pageCreateTime:[
             {required:true,message :'请选择日期',trigger:'change'}
+          ],
+          dataUrl:[
+            {required:true,message :'请输入数据链接',trigger:'change'}
           ]
         }
 

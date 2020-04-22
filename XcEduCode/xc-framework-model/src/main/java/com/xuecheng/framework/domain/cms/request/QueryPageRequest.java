@@ -21,4 +21,6 @@ public class QueryPageRequest {
     private String pageId;
     @ApiParam("页面类型")
     private  String pageType;
+    @ApiParam("数据连接")
+    private  String dataUrl;
 }

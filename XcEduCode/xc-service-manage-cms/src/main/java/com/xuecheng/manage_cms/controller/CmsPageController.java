@@ -21,14 +21,6 @@ public class CmsPageController  implements CmsPageControllerApi {
     @GetMapping("/list/{page}/{size}")
 
     public QueryResponseResult findList(@PathVariable("page") int page, @PathVariable("size")int size, QueryPageRequest queryPageRequest) {
-//        CmsPage cmsPage = new CmsPage();
-//        cmsPage.setPageName("测试页面");
-//        List<CmsPage> cmsPages = new LinkedList<>();
-//        cmsPages.add(cmsPage);
-//        QueryResult queryResult = new QueryResult();
-//        queryResult.setList(cmsPages);
-//        queryResult.setTotal(1);
-//        QueryResponseResult queryResponseResult = new QueryResponseResult(CommonCode.SUCCESS,queryResult);
         return cmsPageService.findList(page,size,queryPageRequest);
     }
 

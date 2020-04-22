@@ -98,6 +98,7 @@ public class CmsPageService {
             one.setPageAliase(cmsPage.getPageAliase());
             one.setPageWebPath(cmsPage.getPageWebPath());
             one.setPagePhysicalPath(cmsPage.getPagePhysicalPath());
+            one.setDataUrl(cmsPage.getDataUrl());
             CmsPage save = cmsPageRepository.save(one);
             if(save!=null){
                 return  new CmsPageResult(CommonCode.SUCCESS,save);

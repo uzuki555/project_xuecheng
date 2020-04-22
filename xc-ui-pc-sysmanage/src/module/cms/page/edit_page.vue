@@ -34,9 +34,13 @@
       <el-form-item label="物理路径"  prop="pagePhysicalPath">
         <el-input v-model="pageForm.pagePhysicalPath"></el-input>
       </el-form-item>
+      <el-form-item label="数据连接"  prop="dataUrl">
+        <el-input v-model="pageForm.dataUrl"></el-input>
+      </el-form-item>
     </el-form>
 
     <div slot="footer" class="dialog-footer">
+
       <el-button type="primary" @click="submit()">提交</el-button>
 
       <el-button type="primary" @click="goBack">返回</el-button>
@@ -60,7 +64,8 @@
           pageAliase: '',
           pageWebPath: '',
           pagePhysicalPath: '',
-
+          dataUrl : '',
+          pageId: ''
         },
         pageFormRules:{
           siteId:[
@@ -80,6 +85,9 @@
           ],
           pagePhysicalPath:[
             {required:true,message :'请输入物理路径',trigger:'blur'}
+          ],
+          dataUrl:[
+            {required:true,message :'请输入数据链接',trigger:'change'}
           ]
         },
 
@@ -87,7 +95,7 @@
       }
     },
     methods: {
-          submit() {
+          submit(pageId) {
             this.$refs.pageForm.validate((valid) => {
               if (valid) {
                 this.$confirm('将提交修改到数据库', '提示', {
@@ -95,7 +103,7 @@
                   cancelButtonText: '取消',
                   type: 'warning'
                 }).then(() => {
-                  cmsApi.edit_page(this.pageForm).then((res) =>{
+                  cmsApi.edit_page(this.$route.query.pageId,this.pageForm).then((res) =>{
                     if(res.success){
                       this.$message({
                         type: 'success',
