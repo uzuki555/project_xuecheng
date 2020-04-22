@@ -3,6 +3,7 @@ package com.xuecheng.api.cms;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.exception.CustomerException;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import io.swagger.annotations.Api;
@@ -21,15 +22,15 @@ public interface CmsPageControllerApi {
 
 
     @ApiOperation("新增页面")
-    public CmsPageResult addCmsPage(CmsPage cmsPage);
+    public CmsPageResult addCmsPage(CmsPage cmsPage) throws CustomerException;
 
 
     @ApiOperation("根据pageId获取页面")
     public  CmsPage findByPageId(String pageId);
 
     @ApiOperation("根据pageId修改页面")
-    public  CmsPageResult editByPageId(String pageId,CmsPage cmsPage);
+    public  CmsPageResult editByPageId(String pageId,CmsPage cmsPage) throws CustomerException;
 
     @ApiOperation("根据pageId删除页面")
-    public ResponseResult deleteByPageId(String pageId);
+    public ResponseResult deleteByPageId(String pageId) throws CustomerException;
 }

@@ -4,6 +4,7 @@ import com.xuecheng.api.cms.CmsPageControllerApi;
 import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.exception.CustomerException;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.ResponseResult;
 import com.xuecheng.manage_cms.service.CmsPageService;
@@ -33,7 +34,7 @@ public class CmsPageController  implements CmsPageControllerApi {
 
     @Override
     @PostMapping("add")
-    public CmsPageResult addCmsPage(@RequestBody CmsPage cmsPage) {
+    public CmsPageResult addCmsPage(@RequestBody CmsPage cmsPage) throws CustomerException {
         CmsPageResult cmsPageResult = cmsPageService.addCmsPage(cmsPage);
         return cmsPageResult;
     }
@@ -47,14 +48,14 @@ public class CmsPageController  implements CmsPageControllerApi {
 
     @Override
     @PutMapping("/edit/{pageId}")
-    public CmsPageResult editByPageId(@PathVariable("pageId") String pageId,@RequestBody CmsPage cmsPage) {
+    public CmsPageResult editByPageId(@PathVariable("pageId") String pageId,@RequestBody CmsPage cmsPage) throws CustomerException {
         CmsPageResult cmsPageResult = cmsPageService.editCmsPage(pageId,cmsPage);
         return cmsPageResult;
     }
 
     @Override
     @GetMapping("delete/{pageId}")
-    public ResponseResult deleteByPageId(@PathVariable("pageId") String pageId) {
+    public ResponseResult deleteByPageId(@PathVariable("pageId") String pageId) throws CustomerException {
         ResponseResult  responseResult =  cmsPageService.deleteByPageId(pageId);
         return responseResult;
     }

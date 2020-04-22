@@ -16,13 +16,37 @@
       @keyup.enter.native="query"
       clearable>
     </el-input>
+    网页名称:
+    <el-input
+      placeholder="请输入内容"
+      style="width: auto"
+      v-model="params.pageName"
+      @keyup.enter.native="query"
+      clearable>
+    </el-input>
+    页面类型:
+    <el-select v-model="params.pageType" placeholder="请选择类型">
+      <el-option
+        v-for="item in typeList"
+        :key="item.pageType"
+        :label="item.name"
+        :value="item.pageType">
+      </el-option>
+    </el-select>
     <el-button
       size="small"
       type="primary"
       @click="query">查询</el-button>
+    <el-button
+      size="small"
+      type="primary"
+      @click="clearKeywords">清空查询</el-button>
     <router-link :to="{path:'/cms/page/add',query:{
         page:this.page,
-        siteId:this.params.siteId
+        siteId:this.params.siteId,
+        pageAliase : this.params.pageAliase,
+        pageName : this.params.pageName,
+        pageType : this.params.pageType
     }}">
       <el-button
         size="small"
@@ -95,7 +119,7 @@
       :page-size = "size"
       @current-change="handleCurrentChange"
       :style="{'float':'right'}"
-      :current-page="page"
+      :current-page.sync="page"
     >
     </el-pagination>
   </div>
@@ -111,12 +135,15 @@
         tableData: [],
         total: 0,
         size: 10,
-        page: 1 ,
+        page: 1,
         params: {
-          pageAliase : '',
-          siteId : ''
+          pageAliase: '',
+          siteId: '',
+          pageName: '',
+          pageType: ''
         },
-      siteList:[]
+        siteList: [],
+        typeList: [],
       }
     },
 
@@ -155,7 +182,11 @@
         this.$router.push({
           path:'/cms/page/edit',query:{
             pageId: pageId,
-            page:this.page
+            page:this.page,
+            siteId:this.params.siteId,
+            pageAliase : this.params.pageAliase,
+            pageName : this.params.pageName,
+            pageType : this.params.pageType
           }
         })
       },
@@ -168,17 +199,25 @@
         cmsApi.page_list(this.page,this.size,this.params).then(res => {
           this.tableData = res.queryResult.list;
           this.total = res.queryResult.total;
+
         }).catch(error => {
           alert("请求失败");
         });
+      },
+      clearKeywords(){
+        Object.assign(this.$data.params,this.$options.data().params);
       }
     },
     created(){
       this.page=this.$route.query.page || 1;
       this.params.siteId   =  this.$route.query.siteId || "";
+      this.params.pageAliase   =  this.$route.query.pageAliase || "";
+      this.params.pageName  =  this.$route.query.pageName || "";
+      this.params.pageType  =  this.$route.query.pageType || "";
     },
     mounted() {
       this.query();
+
       this.siteList = [{
         name: "门户主站",
         siteId: "5a751fab6abb5044e0d19ea1"
@@ -186,7 +225,15 @@
         {
           name: "测试站",
           siteId: "102"
-        }]
+        }];
+      this.typeList = [{
+        name: "静态",
+        pageType : '0'
+      },{
+        name: "动态",
+        pageType : '1'
+      },]
+
     }
   }
 </script>

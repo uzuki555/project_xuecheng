@@ -19,5 +19,6 @@ public class QueryPageRequest {
     @ApiParam("页面ID")
     @Id
     private String pageId;
-
+    @ApiParam("页面类型")
+    private  String pageType;
 }

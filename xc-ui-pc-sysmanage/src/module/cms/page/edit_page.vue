@@ -130,7 +130,10 @@
           path:'/cms/page/show',
           query:{
             page:this.$route.query.page,
-            siteId:this.$route.query.siteId
+            siteId:this.$route.query.siteId,
+            pageAliase:this.$route.query.pageAliase,
+            pageName:this.$route.query.pageName,
+            pageType:this.$route.query.pageType
           }
         })
       }

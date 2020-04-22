@@ -4,6 +4,8 @@ import com.xuecheng.framework.domain.cms.CmsPage;
 import com.xuecheng.framework.domain.cms.request.QueryPageRequest;
 import com.xuecheng.framework.domain.cms.response.CmsCode;
 import com.xuecheng.framework.domain.cms.response.CmsPageResult;
+import com.xuecheng.framework.exception.CustomerException;
+import com.xuecheng.framework.exception.ExceptionCast;
 import com.xuecheng.framework.model.response.CommonCode;
 import com.xuecheng.framework.model.response.QueryResponseResult;
 import com.xuecheng.framework.model.response.QueryResult;
@@ -45,8 +47,15 @@ public class CmsPageService {
         if(StringUtils.isNoneBlank(queryPageRequest.getSiteId())){
             cmsPage.setSiteId(queryPageRequest.getSiteId());
         }
+        if(StringUtils.isNoneBlank(queryPageRequest.getPageName())){
+            cmsPage.setPageName(queryPageRequest.getPageName());
+        }
+        if(StringUtils.isNoneBlank(queryPageRequest.getPageType())){
+            cmsPage.setPageType(queryPageRequest.getPageType());
+        }
         ExampleMatcher exampleMatcher = ExampleMatcher.matching()
-                .withMatcher("pageAliase", ExampleMatcher.GenericPropertyMatchers.contains());
+                .withMatcher("pageAliase", ExampleMatcher.GenericPropertyMatchers.contains())
+                .withMatcher("pageName",ExampleMatcher.GenericPropertyMatchers.contains());
         Example<CmsPage> example  = Example.of(cmsPage,exampleMatcher);
         Page<CmsPage> cmsPages = cmsPageRepository.findAll(example,pageRequest);
 //        Page<CmsPage> cmsPages = cmsPageRepository.findAll(pageRequest);
@@ -56,10 +65,10 @@ public class CmsPageService {
         return  new QueryResponseResult(CommonCode.SUCCESS,queryResult);
     }
     @Transactional
-    public CmsPageResult addCmsPage(CmsPage cmsPage) {
+    public CmsPageResult addCmsPage(CmsPage cmsPage) throws CustomerException {
         CmsPage CmsPageVerification = cmsPageRepository.findByPageNameAndSiteIdAndPageWebPath(cmsPage.getPageName(),cmsPage.getSiteId(),cmsPage.getPageWebPath());
         if(CmsPageVerification !=null){
-            return new CmsPageResult(CmsCode.CMS_ADDPAGE_EXISTSNAME,cmsPage);
+            ExceptionCast.cast(CmsCode.CMS_ADDPAGE_EXISTSNAME);
         }
         //PageId应该由mongdb自动生成
         cmsPage.setPageId(null);
@@ -77,7 +86,10 @@ public class CmsPageService {
 
     }
     @Transactional
-    public CmsPageResult editCmsPage(String pageId, CmsPage cmsPage) {
+    public CmsPageResult editCmsPage(String pageId, CmsPage cmsPage) throws CustomerException {
+        if(cmsPage==null){
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
         CmsPage one = findByPageId(pageId);
         if(one!=null){
             one.setSiteId(cmsPage.getSiteId());
@@ -95,13 +107,13 @@ public class CmsPageService {
         return  new CmsPageResult(CommonCode.FAIL,null);
     }
 
-    public ResponseResult deleteByPageId(String pageId) {
+    public ResponseResult deleteByPageId(String pageId) throws CustomerException {
         Optional<CmsPage> OptionalcmsPage = cmsPageRepository.findById(pageId);
         if(OptionalcmsPage.isPresent()){
             cmsPageRepository.deleteById(pageId);
             return  new ResponseResult(CommonCode.SUCCESS);
         }
-
+        ExceptionCast.cast(CommonCode.FAIL);
         return  new ResponseResult(CommonCode.FAIL);
     }
 }
